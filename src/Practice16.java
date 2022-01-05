@@ -45,17 +45,20 @@ public class Practice16 {
 		String actualAgreeMessage = agreeMessage.getText();
 		String expectedAgreeMessge = "I have read and agree to the Privacy Policy  ";
 		compareText(actualAgreeMessage, expectedAgreeMessge);
+		
 		driver.findElement(By.xpath("//input[@type='checkbox']")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		WebElement successMessage = driver.findElement(By.xpath("//div[@id='content']//child::h1[text()='Your Account Has Been Created!']"));
 		String actualsuccessMessage = successMessage.getText();
 		String expectedsuccessMessage = "Your Account Has Been Created!";
 		compareText(actualsuccessMessage, expectedsuccessMessage);
+		
 		driver.findElement(By.xpath("//a[text()='Continue']")).click();
 		WebElement myAccountPage = driver.findElement(By.xpath("//h2[text()='My Account']"));
 		String actualmyAccountPage = myAccountPage.getText();
 		String expectedmyAccountPage = "My Account";
 		compareText(actualmyAccountPage, expectedmyAccountPage);
+		
 		
 		
 
