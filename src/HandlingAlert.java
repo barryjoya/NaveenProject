@@ -33,6 +33,7 @@ public class HandlingAlert {
 		
 		driver.switchTo().alert().accept();
 		
+		driver.navigate().to("");
 		//driver.switchTo().alert().dismiss();
 		
 		try {

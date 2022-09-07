@@ -51,5 +51,12 @@ public class ScreenShot {
 		FileUtils.copyFile(file, new File(".\\screen2.png"));
 	}
 	
+	
+	public static void TakeScreenShot(String name) throws IOException {
+		TakesScreenshot shot = (TakesScreenshot)driver;
+		File file = shot.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(file, new File(".\\screen1.png"));
+	}
+
 
 }

@@ -12,10 +12,11 @@ public class MultiBrowser {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver ;
-		String browser ="edge";
+		String browser ="chrome";
 		
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+			
 			driver = new ChromeDriver();
 			
 		}else if(browser.equalsIgnoreCase("firefox")) {

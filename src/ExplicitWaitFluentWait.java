@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -30,12 +31,20 @@ public class ExplicitWaitFluentWait {
 		
 		
 		
-
+		WebDriverWait wa = new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebElement as = driver.findElement(By.xpath(""));
+		wa.until(ExpectedConditions.visibilityOf(as));
+		as.getText();
+		as.click();
+		
+		
+		
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		
 		WebElement from = driver.findElement(By.xpath("//div[text()='umbra blue ']"));
 		wait.until(ExpectedConditions.visibilityOf(from));
+		//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(from));
 		System.out.println(from.getText());
 		from.click();
 		
@@ -54,7 +63,8 @@ public class ExplicitWaitFluentWait {
 
 		
 		
-		
+		WebDriverWait wat = new WebDriverWait(driver,Duration.ofSeconds(10));
+		wat.until(ExpectedConditions.elementToBeClickable(By.xpath("")));
 		
 	}
 	

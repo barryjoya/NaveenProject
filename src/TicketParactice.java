@@ -29,6 +29,7 @@ public class TicketParactice {
 		
 		List<String> cities = new ArrayList<String>();
 		
+		
 		for (int i = 1; i <=20; i++) {
 			WebElement element= driver.findElement(By.xpath("//ul[@role='listbox']//child::li["+i+"]//div//div//p[1]"));
 		cities.add(element.getText());

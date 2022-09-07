@@ -14,6 +14,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
@@ -60,6 +62,13 @@ public class CompletePractice {
 		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		 driver.manage().window().maximize();
 		 
+		 driver.findElement(By.xpath("//div[@data-cy='outsideModal']")).click();;
+		
+		// Actions click = new Actions(driver);
+		 
+		
+		 
+		// driver.switchTo().alert().accept();
 		 
 		 WebElement date = driver.findElement(By.xpath("//label[@for='departure']"));
 		 date.click();
@@ -97,10 +106,13 @@ public class CompletePractice {
 		       
 				 el.click();
 		
+				 
+				 
 				Set<String> str = driver.getWindowHandles();
 				Iterator<String> itr = str.iterator();
 				
 				String parent =  itr.next();
+				
 				String child = itr.next();
 				
 				Thread.sleep(2000);

@@ -52,11 +52,12 @@ public class SelectClassPractice {
 		
 		for(int i =0; i<els.size(); i++) {
 			contry=els.get(i).getText();
-			if(els.get(i).getText() == "Yemen") {
+			if(els.get(i).getText() == "Yemen") { // the return of findelemnts is list. 
               break;
 			}
 			System.out.println(contry);
 		}
+		
 		
 		
 		
@@ -72,7 +73,7 @@ public class SelectClassPractice {
 //		System.out.println(month.getText());
 //		
 //		WebElement day = driver.findElement(By.id("day"));
-		
+		 
 //		Select select1 = new Select(day);
 //		select1.selectByVisibleText("21");
 //		System.out.println(day.getText());

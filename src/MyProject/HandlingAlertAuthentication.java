@@ -14,8 +14,9 @@ public class HandlingAlertAuthentication {
 		
 		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 
-        WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver();
 		
+         
 		
 		
 		driver.manage().window().maximize();
@@ -26,7 +27,9 @@ public class HandlingAlertAuthentication {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		driver.findElement(By.cssSelector("button#onetrust-accept-btn-handler")).click();
+		WebElement element = driver.findElement(By.cssSelector("button#onetrust-accept-btn-handler"));
+		System.out.println(element.getAttribute("button#onetrust-accept-btn-handler"));
+		
 
 		driver.switchTo().alert().accept();
 		

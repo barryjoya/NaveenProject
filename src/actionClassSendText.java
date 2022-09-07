@@ -1,4 +1,6 @@
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,16 +25,22 @@ public class actionClassSendText {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		
 		WebElement searchBar = driver.findElement(By.id("twotabsearchtextbox"));
+		
 		//searchBar.sendKeys("macbook pro");
 		
 		WebElement submit = driver.findElement(By.id("nav-search-submit-button"));
+				
 				//submit.click(); 
 		Actions action = new Actions(driver);
 		action.sendKeys(searchBar, "best book").click(submit).build().perform(); // most of the time use sendKyes witouth action class
 		
+	
+		
 		// but sometimes we do need action class
 		//action.click(searchBar);
 		//action.moveToElement(searchBar).perform(); // single Action on perform(); method works
+		Set<String> dr = driver.getWindowHandles();
+		Iterator<String> it = dr.iterator();
 		
 		
 		try {

@@ -7,19 +7,46 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
 public class WindowsHandlingInSelenuim {
-
+	
+	
+	public static WebDriver driver;
+	
 	public static void main(String[] args) throws InterruptedException {
 		
+		
 		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		
 		driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
 		///HtmlUnitDriver driver = new HtmlUnitDriver();
 		
 		WebElement open = driver.findElement(By.cssSelector("button#newWindowBtn"));
 		open.click();
+		
+		
+		
+		
+		
+		
+		
+		
+		Set<String> ne = driver.getWindowHandles();
+		Iterator<String> all = ne.iterator();
+		
+		String p = all.next();
+		String c = all.next();
+		
+		driver.switchTo().window(c);
+		driver.manage().window().maximize();
+		driver.switchTo().window(p);
+		
+		
+		
+		
+		
 		
 		Set<String> allWindow = driver.getWindowHandles();
 		Iterator <String>itrate = allWindow.iterator();

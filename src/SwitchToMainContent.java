@@ -20,6 +20,7 @@ public class SwitchToMainContent {
         driver.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert2");
         WebElement frame = driver.findElement(By.id("iframeResult"));
         driver.switchTo().frame(frame);
+        
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
             .withTimeout(Duration.ofSeconds(20))
             .pollingEvery(Duration.ofSeconds(1));

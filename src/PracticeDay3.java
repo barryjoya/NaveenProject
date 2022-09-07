@@ -19,10 +19,19 @@ public class PracticeDay3 {
 		
 		WebDriver driver = new ChromeDriver();
 		
-		driver.get("https://www.facebook.com/");
+		//driver.get("https://www.facebook.com/");
+		driver.get("http://tek-school.com/retail/index.php?route=product/category&path=34");
 		
 		driver.manage().window().maximize();
-		
+			List<WebElement> el = driver.findElements(By.xpath("//div[@class='caption']//child::p[1]"));
+			for(WebElement i:el) {
+				System.out.println(i);
+//				if(i.getText().contains("Born to be worn")) {
+//					System.out.println(i.getText());
+//				}
+			}
+
+		/*
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("Bayrl@gmail.com");
 		
@@ -131,7 +140,7 @@ public class PracticeDay3 {
 //			}
 //		}
 //		
-
+*/
 	}
 
 }

@@ -1,16 +1,24 @@
 import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Driver;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class PracticeDay4 {
 
+    public static	WebDriver driver;
 	public static void main(String[] args) {
 		
 		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
@@ -56,9 +64,12 @@ public class PracticeDay4 {
 				driver.findElement(By.id("input-confirm")).sendKeys("Helooworld");
 				
 				
+				Actions clas = new Actions(driver);
 				
+				clas.doubleClick(firstName).perform();
 				
-				
+				driver.navigate().to("");
+				driver.switchTo().frame(firstName);
 		
 		try {
 			Thread.sleep(2000);
@@ -93,5 +104,14 @@ public class PracticeDay4 {
 		}else {
 			System.out.println(actualText+ " != " +expectedText+ " Failed ");
 		}
+	}
+	
+	public static void takeScreenShot(String fileName) throws IOException {
+		
+		String path = ".\\screenshots";
+		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(file, new File(path + fileName +".PNG"));
+	
+		
 	}
 }

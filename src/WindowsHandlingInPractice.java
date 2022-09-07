@@ -3,9 +3,11 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WindowsHandlingInPractice {
 
@@ -17,11 +19,15 @@ public class WindowsHandlingInPractice {
 		driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-		
+	
 		WebElement openNewWindow = driver.findElement(By.cssSelector("button#newWindowBtn"));
 		openNewWindow.click();
-		
-		
+		openNewWindow.sendKeys(Keys.F5);
+		driver.getCurrentUrl();
+	//	driver.navigate().to("");m
+	//	driver.navigate().back();
+	//	driver.getWindowHandles().contains(openNewWindow);
+		driver.switchTo().alert().accept();
 		
 		Set<String> allWindow = driver.getWindowHandles();
 		
@@ -30,7 +36,8 @@ public class WindowsHandlingInPractice {
 		String parent = itr.next();
 		String child = itr.next();
 	
-		
+	
+		WebDriverWait wat = new WebDriverWait(driver, null, null, 0, 0);
 		
 		driver.switchTo().window(child);
 		driver.manage().window().maximize();
